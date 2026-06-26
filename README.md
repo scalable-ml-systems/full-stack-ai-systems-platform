@@ -1,27 +1,14 @@
-# Agent Architecture & Orchestration Platform
+# Full-Stack AI Systems Platform
 
+## Goals
+- End-to-end AI platform: inference, RAG, agents, apps.
+- Production-grade infra: Kubernetes, GPUs, observability, CI/CD.
+- Modular “platform slices” that can be reused across projects.
 
-┌────────────────────────────────────────────┐
-│ Block 4 — Product Console                  │
-│ Evidence UI, trace viewer, approvals        │
-└────────────────────────────────────────────┘
-                    ↓
-┌────────────────────────────────────────────┐
-│ Block 3 — Agent Architecture               │
-│ state machine, policy, isolation, evals     │
-└────────────────────────────────────────────┘
-                    ↓
-┌────────────────────────────────────────────┐
-│ Block 2 — RAG + MCP Context Layer          │
-│ retrieval, citations, tools, memory         │
-└────────────────────────────────────────────┘
-                    ↓
-┌────────────────────────────────────────────┐
-│ Block 1 — Inference Runtime                │
-│ SGLang, vLLM, structured outputs            │
-└────────────────────────────────────────────┘
-                    ↓
-┌────────────────────────────────────────────┐
-│ Block 5 — Cloud Platform                   │
-│ Kubernetes, GPU, tracing, metrics           │
-└────────────────────────────────────────────┘
+## High-Level Components
+- Services: core AI workloads (LLM inference, RAG, agents).
+- Infra: Kubernetes, Terraform, observability, networking.
+- Platform: auth, tenancy, billing, configuration.
+- Apps: operator console + example AI applications.
+
+# Active Build : In-progress
