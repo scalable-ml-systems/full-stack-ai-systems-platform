@@ -1,0 +1,10 @@
+[project]
+name = "agent-systems-architecture"
+version = "0.1.0"
+description = "Agent control plane for governed agent workflows"
+requires-python = ">=3.11"
+dependencies = []
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
