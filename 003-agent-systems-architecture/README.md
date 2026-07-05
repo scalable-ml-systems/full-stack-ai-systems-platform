@@ -1,16 +1,29 @@
-# 003 Agent Systems Architecture
+# Block 3 — Agent Systems Architecture
 
-This build implements the Agent Control Plane layer.
+This module implements a reusable shared agent control plane and validates it through two workflow profiles:
 
-The Agent Control Plane is responsible for:
+1. AI Infrastructure Incident Response
+2. Regulated Evidence Review
 
-- workflow routing
-- state transitions
-- planner-executor execution
-- supervisor-worker coordination
-- bounded loop control
-- trace logging
-- trajectory-level evaluation
+## Shared Control Plane Responsibilities
 
-This is not a chatbot demo.  
-This is the control layer for governed agent workflows.
+- Workflow profile registration
+- Request routing
+- State transition enforcement
+- Planner-executor coordination
+- Supervisor-worker coordination
+- Bounded loops
+- Policy and tool authorization
+- Human approval
+- Checkpoint recovery
+- Trace logging
+- Trajectory evaluation
+
+## Development Commands
+
+```bash
+make install
+make test
+make type-check
+make lint
+make validate

@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Virtual environments
+.venv/
+venv/
+
+# Testing and coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Type checking and linting
+.mypy_cache/
+.ruff_cache/
+
+# Environment files
+.env
+.env.*
+
+# IDE
+.vscode/
+.idea/
+
+# Operating system
+.DS_Store
+
+# Generated runtime artifacts
+traces/**/*.json
+traces/**/*.jsonl
+checkpoints/**/*.db
+checkpoints/**/*.sqlite
+checkpoints/**/*.sqlite3
+reports/generated/
+
+# Temporary files
+*.tmp
+*.log
