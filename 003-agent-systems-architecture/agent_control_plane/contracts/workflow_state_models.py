@@ -6,10 +6,10 @@ from agent_control_plane.contracts.common_contract_types import (
     HumanApprovalStatus,
     PayloadTrustLevel,
 )
-
 from agent_control_plane.contracts.execution_envelope_models import (
     ExecutionEnvelope,
 )
+
 
 class WorkflowStateContext(BaseModel):
     model_config = ConfigDict(
@@ -29,11 +29,10 @@ class WorkflowStateContext(BaseModel):
 
     retry_attempts_by_step: dict[str, int] = Field(default_factory=dict)
 
-    human_approval_status: HumanApprovalStatus = (
-        HumanApprovalStatus.NOT_REQUIRED
-    )
+    human_approval_status: HumanApprovalStatus = HumanApprovalStatus.NOT_REQUIRED
 
     checkpoint_reference: str | None = None
+
 
 class TrustedPayloadItem(BaseModel):
     model_config = ConfigDict(extra="forbid")
@@ -65,23 +64,15 @@ class AgentDataPayload(BaseModel):
 
     workflow_plan: dict[str, Any] | None = None
 
-    trusted_working_data: list[TrustedPayloadItem] = Field(
-        default_factory=list
-    )
+    trusted_working_data: list[TrustedPayloadItem] = Field(default_factory=list)
 
-    untrusted_content_items: list[UntrustedPayloadItem] = Field(
-        default_factory=list
-    )
+    untrusted_content_items: list[UntrustedPayloadItem] = Field(default_factory=list)
 
     worker_results: list[dict[str, Any]] = Field(default_factory=list)
-    tool_execution_results: list[dict[str, Any]] = Field(
-        default_factory=list
-    )
+    tool_execution_results: list[dict[str, Any]] = Field(default_factory=list)
 
     draft_output: Any | None = None
-    verification_results: list[dict[str, Any]] = Field(
-        default_factory=list
-    )
+    verification_results: list[dict[str, Any]] = Field(default_factory=list)
 
     human_review_feedback: dict[str, Any] | None = None
     final_output: Any | None = None
@@ -89,6 +80,7 @@ class AgentDataPayload(BaseModel):
     errors: list[str] = Field(default_factory=list)
 
     profile_specific_payload: dict[str, Any] = Field(default_factory=dict)
+
 
 class GovernedAgentEnvelope(BaseModel):
     model_config = ConfigDict(

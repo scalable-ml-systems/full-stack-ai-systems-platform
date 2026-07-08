@@ -42,23 +42,19 @@ def test_workflow_state_context_starts_with_expected_values() -> None:
 
     assert workflow_state_context.current_workflow_state == "START"
     assert workflow_state_context.current_step_number == 0
-    assert workflow_state_context.human_approval_status == (
-        HumanApprovalStatus.NOT_REQUIRED
-    )
+    assert workflow_state_context.human_approval_status == (HumanApprovalStatus.NOT_REQUIRED)
 
 
 def test_agent_data_payload_requires_user_request() -> None:
     with pytest.raises(ValidationError):
-        AgentDataPayload()
+        AgentDataPayload()  # type: ignore[call-arg]
 
 
 def test_untrusted_payload_item_records_provenance() -> None:
     user_request = create_test_user_request()
 
     assert user_request.source_identifier == "user_request"
-    assert user_request.trust_level == (
-        PayloadTrustLevel.UNTRUSTED_USER_INPUT
-    )
+    assert user_request.trust_level == (PayloadTrustLevel.UNTRUSTED_USER_INPUT)
     assert user_request.is_security_reviewed is False
 
 
@@ -75,15 +71,12 @@ def test_governed_agent_envelope_combines_shared_contracts() -> None:
     )
 
     assert governed_agent_envelope.execution_envelope.run_id == "run_001"
-    assert (
-        governed_agent_envelope.workflow_state_context.current_workflow_state
-        == "START"
-    )
+    assert governed_agent_envelope.workflow_state_context.current_workflow_state == "START"
 
 
 def test_payload_cannot_supply_workflow_state_fields() -> None:
     with pytest.raises(ValidationError):
         AgentDataPayload(
             user_request=create_test_user_request(),
-            current_workflow_state="execute_tool",
+            current_workflow_state="execute_tool",  # type: ignore[call-arg]
         )

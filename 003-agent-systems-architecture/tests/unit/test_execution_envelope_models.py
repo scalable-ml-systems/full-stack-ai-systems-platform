@@ -19,9 +19,7 @@ def test_execution_envelope_accepts_valid_run_identity() -> None:
     )
 
     assert execution_envelope.run_id == "run_001"
-    assert execution_envelope.execution_status == (
-        WorkflowExecutionStatus.CREATED
-    )
+    assert execution_envelope.execution_status == (WorkflowExecutionStatus.CREATED)
 
 
 def test_execution_envelope_rejects_empty_run_id() -> None:
@@ -43,7 +41,7 @@ def test_execution_envelope_rejects_unknown_fields() -> None:
             input_case_id="case_001",
             workflow_profile_name="test_workflow_profile",
             workflow_profile_version="0.1.0",
-            unexpected_field="not_allowed",
+            unexpected_field="not_allowed",  # type: ignore[call-arg]
         )
 
 
@@ -57,4 +55,4 @@ def test_execution_envelope_is_immutable() -> None:
     )
 
     with pytest.raises(ValidationError):
-        execution_envelope.run_id = "run_999"
+        execution_envelope.run_id = "run_999" # type: ignore[misc]

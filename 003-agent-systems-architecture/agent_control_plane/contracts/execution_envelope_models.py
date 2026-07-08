@@ -1,4 +1,4 @@
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 
 from pydantic import BaseModel, ConfigDict, Field
 
@@ -8,7 +8,7 @@ from agent_control_plane.contracts.common_contract_types import (
 
 
 def current_utc_timestamp() -> datetime:
-    return datetime.now(timezone.utc)
+    return datetime.now(UTC)
 
 
 class ExecutionEnvelope(BaseModel):
@@ -28,6 +28,4 @@ class ExecutionEnvelope(BaseModel):
     started_at: datetime | None = None
     completed_at: datetime | None = None
 
-    execution_status: WorkflowExecutionStatus = (
-        WorkflowExecutionStatus.CREATED
-    )
+    execution_status: WorkflowExecutionStatus = WorkflowExecutionStatus.CREATED
